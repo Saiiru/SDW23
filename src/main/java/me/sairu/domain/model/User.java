@@ -73,4 +73,7 @@ public class User {
         this.news = news;
     }
 
+    public String getAccountNumber() {
+        return account.getNumber();
+    }
 }
