@@ -6,12 +6,8 @@ plugins {
 
 group = 'me.sairu'
 version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
-}
 
 repositories {
 	mavenCentral()
@@ -28,7 +24,11 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-
+tasks.jar {
+	manifest {
+		attributes["Main-Class"] = "me.sairu.Application"
+	}
+}
 tasks.named('test') {
 	useJUnitPlatform()
 }
